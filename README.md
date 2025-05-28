@@ -97,14 +97,17 @@ print_escape
 Place your completed `print.sh` in `solutions/` and commit. Then link it here:
 
 ```
-[print.sh](https://github.com/YOUR_USERNAME/REPO_NAME/blob/main/solutions/print.sh)
+[print.sh](https://github.com/SNOOPER-06/PP6/solutions/print.sh)
 ```
 
 #### Reflection Questions
 
-1. **What is the difference between `printf` and `echo` in Bash?**
-2. **What is the role of `~/.bashrc` in your shell environment?**
-3. **Explain the difference between sourcing (`source ~/.bashrc`) and executing (`./print.sh`).**
+1. **What is the difference between `printf` and `echo` in Bash?
+   Answer: echo ist einfacher, aber printf ist präziser und besser für kontrollierte Ausgaben.** 
+2. **What is the role of `~/.bashrc` in your shell environment?
+   Answer: Sie ist zentral für Ihre personalisierte Shell-Umgebung.**
+3. **Explain the difference between sourcing (`source ~/.bashrc`) and executing (`./print.sh`)
+   Answer: source wirkt wie ein „Einfügen“ des Inhalts in die laufende Shell, während ./print.sh ein separates Shell-Programm startet.**
 
 ---
 
@@ -119,6 +122,10 @@ Place your completed `print.sh` in `solutions/` and commit. Then link it here:
    * Any editor or OS-specific files
      Commit this `.gitignore` file.
      **Explain:** Why should compiled artifacts and binaries not be committed to a Git repository?
+      Answer: Kompilierte Artefakte und Binärdateien sollten nicht ins Repository, weil:
+      Sie sind nicht quelltextbasiert und somit nicht versionskontrollrelevant.
+      Sie können auf verschiedenen Systemen unterschiedlich erstellt werden (nicht portabel).
+      Sie blähen das Repository unnötig auf.
 2. In `./solutions/`, create a file named `print.s` using the template below.
 3. Define a message in the `.data` section (e.g., `msg: .ascii "Hello from GAS!\n"`, `len = . - msg`).
 4. In the `.text` section’s `_start` symbol, invoke `sys_write` (syscall 4) and then `sys_exit` (syscall 1) via `int $0x80`.
@@ -154,14 +161,17 @@ _start:
 **Solution Reference**
 
 ```
-[print.s](https://github.com/YOUR_USERNAME/REPO_NAME/blob/main/solutions/print.s)
+[print.s](https://github.com/SNOOPER-06/PP6/blob/main/solutions/print.s)
 ```
 
 #### Reflection Questions
 
-1. **What is a file descriptor and how does the OS use it?**
-2. **How can you obtain or duplicate a file descriptor for another resource (e.g., a file or socket)?**
-3. **What might happen if you use an invalid file descriptor in a syscall?**
+1. **What is a file descriptor and how does the OS use it?
+   Answer: Eine kleine Zahl, die das Betriebssystem benutzt, um offene Dateien oder andere Ressourcen zu identifizieren.**
+2. **How can you obtain or duplicate a file descriptor for another resource (e.g., a file or socket)?
+   Answer: Durch Öffnen einer Datei oder eines Sockets mit Systemaufrufen wie open() oder socket(). Man kann ihn auch mit dup() oder dup2() kopieren.**
+3. **What might happen if you use an invalid file descriptor in a syscall?
+   Answer: Der Systemaufruf schlägt fehl, gibt einen Fehler zurück (z.B. EBADF), und das Programm muss damit umgehen, sonst kann es abstürzen oder Fehler zeigen.**
 
 ---
 
@@ -202,7 +212,10 @@ int main(void) {
 1. **Use `objdump -d` on `print_c` to find the assembly instructions corresponding to your `printf` calls.**
 2. **Why is the syntax written differently from GAS assembly? Compare NASM vs. GAS notation.**
 3. **How could you use `fprintf` to write output both to `stdout` and to a file instead? Provide example code.**
-
+Answer: vobjdump zeigt GAS-Syntax, die sich von NASM (Intel-Syntax) unterscheidet:
+    AT&T (GAS): mov $5, %eax (Quelle zuerst, Register mit %)
+    Intel (NASM): mov eax, 5 (Ziel zuerst, keine %-Zeichen)
+fprintf schreibt formatiert in einen beliebigen Stream (z. B. stdout oder Datei)
 ---
 
 ### Task 4: Python 3 Printing
@@ -243,7 +256,9 @@ if __name__ == "__main__":
 
 1. **Is Python’s print behavior closer to Bash, Assembly, or C? Explain.**
 2. **Can you inspect a Python script’s binary with `objdump`? Why or why not?**
-
+Answer:
+1- Python ist in seinem Druckverhalten Bash ähnlicher als C oder Assembly – beide verwenden einfache, hochabstrakte Befehle (print, echo) zur Ausgabe.
+2- Nein, objdump kann normale Python-Skripte nicht sinnvoll analysieren, da sie Textdateien sind, kein Maschinencode. Nur kompilierte Python-Programme (z. B. von PyInstaller) kann man mit objdump untersuchen.
 ---
 
 **Remember:** Stop working after **90 minutes** and document where you stopped.
