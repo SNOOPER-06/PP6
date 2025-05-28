@@ -97,7 +97,7 @@ print_escape
 Place your completed `print.sh` in `solutions/` and commit. Then link it here:
 
 ```
-[print.sh](https://github.com/SNOOPER-06/PP6/solutions/print.sh)
+[print.sh](https://github.com/SNOOPER-06/PP6/blob/master/solutions/print.sh)
 ```
 
 #### Reflection Questions
@@ -161,7 +161,7 @@ _start:
 **Solution Reference**
 
 ```
-[print.s](https://github.com/SNOOPER-06/PP6/blob/main/solutions/print.s)
+[print.s](https://github.com/SNOOPER-06/PP6/blob/master/solutions/print.s)
 ```
 
 #### Reflection Questions
@@ -204,7 +204,7 @@ int main(void) {
 **Solution Reference**
 
 ```
-[print.c](https://github.com/YOUR_USERNAME/REPO_NAME/blob/main/solutions/print.c)
+[print.c](https://github.com/SNOOPER-06/PP6/blob/master/solutions/print.c)
 ```
 
 #### Reflection Questions
@@ -249,7 +249,7 @@ if __name__ == "__main__":
 **Solution Reference**
 
 ```
-[print.py](https://github.com/YOUR_USERNAME/REPO_NAME/blob/main/solutions/print.py)
+[print.py](https://github.com/SNOOPER-06/PP6/blob/master/solutions/print.py)
 ```
 
 #### Reflection Questions
